@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1075154103681-e9va09nqfimvsgf9f0f5anm7ovstq4mv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1075154103681-e9va09nqfimvsgf9f0f5anm7ovstq4mv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyARJJQihNyQdIz3mJc2ED17e-CZZa0MoW4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1075154103681</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>faizan.FAST-NUCES</string>
+	<key>PROJECT_ID</key>
+	<string>fast-nuces-72575</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fast-nuces-72575.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1075154103681:ios:ea9ae055c8a0a319</string>
+	<key>DATABASE_URL</key>
+	<string>https://fast-nuces-72575.firebaseio.com</string>
+</dict>
+</plist>
