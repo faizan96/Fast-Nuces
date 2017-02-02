@@ -25,6 +25,17 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        tap.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tap)
+        
+        
+    }
+    
+    func dismissKeyboard() {
+        
+        view.endEditing(true)
     }
     
     
@@ -67,6 +78,6 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         cell.backgroundColor = UIColor.clear
     }
     
-  
+    
 
 }

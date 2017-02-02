@@ -8,6 +8,9 @@
 
 import UIKit
 import Spring
+import FirebaseAuth
+import ProgressHUD
+import SCLAlertView
 
 class LoginVC: UIViewController {
 
@@ -35,6 +38,34 @@ class LoginVC: UIViewController {
 
     @IBAction func cancelTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func signInTapped(_ sender: Any) {
+        ProgressHUD.show("Please wait.....")
+        
+        if let email = emailField.text, !email.isEmpty , let password = passwordField.text, !password.isEmpty
+        {
+            AuthService.instance.login(email: email, password: password, onComplete: { (errMsg, data) in
+                
+                guard errMsg == nil else
+                {
+                    ProgressHUD.dismiss()
+                    SCLAlertView().showWarning("Error Authentication", subTitle: errMsg!)
+                    return
+                }
+                ProgressHUD.dismiss()
+                AuthService.instance.switchNav()            })
+            
+        }
+        else
+        {
+            ProgressHUD.dismiss()
+            SCLAlertView().showWarning("Email & Password", subTitle: "You must enter email and password")
+        }
+    }
+    
+    
+    @IBAction func forgetPwdTapped(_ sender: Any) {
     }
     
     

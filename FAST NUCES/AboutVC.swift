@@ -9,13 +9,14 @@
 import UIKit
 import SafariServices
 
-class CreditsVC: UITableViewController {
+class AboutVC: UITableViewController {
     
 
-    var sectionTitles = ["Leave Feedback", "Follow Us"]
-    var sectionContent = [["Rate us on The App Store", "Tell us your feedback"],["Twitter","Facebook","Pintrest"]]
-    var links = ["https://twitter.com/appcodamobile", "https://facebook.com/appcodamobile", "https://www.pinterest.com/appcoda/"]
-    var links2 = ["https://twitter.com/faizannaseem96","https://twitter.com/faizannaseem96"]
+    var sectionTitles = ["Leave Feedback", "Follow Us","Credits"]
+    var sectionContent = [["Rate us on The App Store"],["Website","Twitter","Facebook"],["Icons in App"]]
+    var links = ["http://goo.gl/u3rqmi", "https://twitter.com/faizannaseem96", "https://www.facebook.com/faizannasimansari"]
+    var links2 = ["https://twitter.com/faizannaseem96"]
+    var links3 = ["http://www.flaticon.com/"]
     
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -71,6 +72,12 @@ class CreditsVC: UITableViewController {
         
         case 1:
             if let url = URL(string: links[indexPath.row]) {
+                let safariController = SFSafariViewController(url: url)
+                present(safariController, animated: true, completion: nil)
+            }
+            
+        case 2:
+            if let url = URL(string: links3[indexPath.row]) {
                 let safariController = SFSafariViewController(url: url)
                 present(safariController, animated: true, completion: nil)
             }

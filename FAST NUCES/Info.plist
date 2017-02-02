@@ -40,5 +40,7 @@
 		<string>Wisdom Script.otf</string>
 		<string>Proxima Nova Light.otf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To Take Photos</string>
 </dict>
 </plist>

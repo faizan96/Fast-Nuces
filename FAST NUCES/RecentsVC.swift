@@ -8,15 +8,17 @@
 
 import UIKit
 
-class RecentsVC: UITableViewController {
+class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var parentNavigationController : UINavigationController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.register(UINib(nibName: "RecentCell", bundle: nil), forCellReuseIdentifier: "raCell")
-        self.tableView.register(UINib(nibName: "RecentCell2", bundle: nil), forCellReuseIdentifier: "raCell2")
+       
+        
         
     }
     
@@ -28,12 +30,12 @@ class RecentsVC: UITableViewController {
         print("Recents page: viewDidAppear")
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         if indexPath.row % 2 == 0
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "raCell", for: indexPath) as! RecentCell
@@ -53,9 +55,40 @@ class RecentsVC: UITableViewController {
         
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180.0
     }
   
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FavouritesCell
+    
+        cell.postImg.image = UIImage(named: "watchkit-intro")
+        
+        
+        return cell
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

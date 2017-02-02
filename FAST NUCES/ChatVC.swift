@@ -17,6 +17,7 @@ class ChatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         let bottomLayerEmail = CALayer()
         bottomLayerEmail.frame = CGRect(x: 0, y: 39, width: 1000, height: 0.8)
         bottomLayerEmail.backgroundColor = UIColor.white.cgColor
@@ -24,12 +25,13 @@ class ChatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         
         
-        self.title = "Chat Room"
+        //self.title = "Chat Room"
         
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         
         tableView.backgroundView = UIImageView(image: UIImage(named: "main"))
         tableView.tableFooterView = UIView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
@@ -37,7 +39,7 @@ class ChatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 10
     }
     
     
@@ -50,5 +52,12 @@ class ChatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
+    
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 
 }

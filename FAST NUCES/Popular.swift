@@ -29,15 +29,21 @@ class Popular: UIViewController, CAPSPageMenuDelegate {
         
          var controllerArray : [UIViewController] = []
         
-        let controller1 : RecentsVC = RecentsVC(nibName: "RecentsVC", bundle: nil)
-        controller1.title = "Recents"
-        controller1.parentNavigationController = self.navigationController
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+        
+        let controller1 = mainStoryboard.instantiateViewController(withIdentifier: "RecentsVC") as! RecentsVC
+     //   controller1.parentNavigationController = self.navigationController
+        controller1.title = "Recent"
         controllerArray.append(controller1)
         
-        let controller2 : FavouritesVC = FavouritesVC(nibName: "FavouritesVC", bundle: nil)
+
+        
+        let controller2 = mainStoryboard.instantiateViewController(withIdentifier: "FavVC") as! FavouritesVC
+      //  controller2.parentNavigationController = self.navigationController
         controller2.title = "Favourites"
-        controller2.parentNavigationController = self.navigationController
         controllerArray.append(controller2)
+        
         
         let parameters: [CAPSPageMenuOption] = [
             .menuItemSeparatorWidth(4.3),
@@ -60,6 +66,13 @@ class Popular: UIViewController, CAPSPageMenuDelegate {
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x:0.0, y:60.0, width:self.view.frame.width, height:self.view.frame.height), pageMenuOptions: parameters)
         pageMenu!.delegate = self
         self.view.addSubview(pageMenu!.view)
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+     
         
         
     }

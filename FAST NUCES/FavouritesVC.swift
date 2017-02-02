@@ -12,8 +12,9 @@ import TRMosaicLayout
 
 private let reuseIdentifier = "faCell"
 
-class FavouritesVC: UICollectionViewController {
+class FavouritesVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
+    @IBOutlet weak var collectionView: UICollectionView!
     var parentNavigationController : UINavigationController?
     
     
@@ -25,21 +26,21 @@ class FavouritesVC: UICollectionViewController {
         self.collectionView?.collectionViewLayout = mosaicLayout
         mosaicLayout.delegate = self
         
-        let nib = UINib(nibName: "FavouritesCell", bundle: nil)
-        collectionView?.register(nib, forCellWithReuseIdentifier: "faCell")
-        
+      
       
     }
 
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+     {
         
         return 9
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavouritesCell
-    
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 5
         cell.postImg.image = UIImage(named: "watchkit-intro")
 
         
