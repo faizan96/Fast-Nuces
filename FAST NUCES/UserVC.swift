@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import ProgressHUD
 
 class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
@@ -14,6 +16,7 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var user = [Users]()
     
     override func viewDidLoad() {
       
@@ -30,9 +33,40 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         tap.numberOfTapsRequired = 1
         view.addGestureRecognizer(tap)
         
+        observeUser()
+        
         
     }
     
+    
+    
+    func observeUser()
+    {
+        ProgressHUD.show()
+        AuthService.instance.USERS_REF?.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let users = snapshot.value as? Dictionary<String,AnyObject>
+            {
+                for (_, value) in users
+                {
+                    if let dict = value as? Dictionary<String,AnyObject>
+                    {
+                        let imageUrl = dict["profileImg"] as! String
+                        let username = dict["username"] as! String
+                        let user = Users(username: username, thumbnail: imageUrl)
+                        self.user.append(user)
+                    }
+                    
+                }
+            }
+            self.tableVIew.reloadData()
+            ProgressHUD.dismiss()
+        })
+        
+        
+        
+        
+    }
+
     func dismissKeyboard() {
         
         view.endEditing(true)
@@ -64,13 +98,19 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return user.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UsersCell
         
+        let users = user[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UsersCell
+        cell.configureCell(users: users)
         return cell
+        
+        
+        
+        
     }
     
     

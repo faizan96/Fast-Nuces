@@ -31,6 +31,7 @@
 		B394F5E91E33DD0400AB5CC5 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394F5E81E33DD0400AB5CC5 /* MainVC.swift */; };
 		B394F5EC1E33DD2800AB5CC5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394F5EB1E33DD2800AB5CC5 /* LoginVC.swift */; };
 		B39D69B71E33EA0200F80DC5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39D69B61E33EA0200F80DC5 /* SignUpVC.swift */; };
+		B3B9BD6C1E439BE7006A0F1A /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B9BD6B1E439BE7006A0F1A /* Users.swift */; };
 		B3BF54E61E34A77D00D204C7 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BF54E51E34A77D00D204C7 /* SWRevealViewController.m */; };
 		B3BF54E81E34ABFE00D204C7 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF54E71E34ABFE00D204C7 /* NewsVC.swift */; };
 		B3BF54EA1E34AC0A00D204C7 /* Popular.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF54E91E34AC0A00D204C7 /* Popular.swift */; };
@@ -71,6 +72,7 @@
 		B394F5E81E33DD0400AB5CC5 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		B394F5EB1E33DD2800AB5CC5 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B39D69B61E33EA0200F80DC5 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		B3B9BD6B1E439BE7006A0F1A /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		B3BF54E31E34A77C00D204C7 /* FAST NUCES-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FAST NUCES-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3BF54E41E34A77D00D204C7 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		B3BF54E51E34A77D00D204C7 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		B369502A1E338D3A00E1E236 /* FAST NUCES */ = {
 			isa = PBXGroup;
 			children = (
+				B3B9BD6A1E439BD8006A0F1A /* Modal */,
 				B30CF40B1E4253C000BA6F9A /* Services */,
 				B369502B1E338D3A00E1E236 /* AppDelegate.swift */,
 				B328FA941E370A0600E49722 /* CAPSPageMenu.swift */,
@@ -203,6 +206,14 @@
 				B33B13731E40295200EAF9A4 /* AboutVC.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B3B9BD6A1E439BD8006A0F1A /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				B3B9BD6B1E439BE7006A0F1A /* Users.swift */,
+			);
+			name = Modal;
 			sourceTree = "<group>";
 		};
 		B3BF54E21E34A75700D204C7 /* SWRevealViewController */ = {
@@ -385,6 +396,7 @@
 				B394F5E91E33DD0400AB5CC5 /* MainVC.swift in Sources */,
 				B3BF54E61E34A77D00D204C7 /* SWRevealViewController.m in Sources */,
 				B3C995691E3AEB580062F039 /* Ring.swift in Sources */,
+				B3B9BD6C1E439BE7006A0F1A /* Users.swift in Sources */,
 				B328FA901E37057D00E49722 /* RecentCell.swift in Sources */,
 				B3C995651E3AEB580062F039 /* Constraints+.swift in Sources */,
 				B3C995641E3AEB580062F039 /* FaveIcon.swift in Sources */,

@@ -96,7 +96,7 @@ class AuthService
                     
                     
                 })
-               self.USERS_REF?.child((user?.uid)!).setValue(["username":username,"email":email,"profileImg":self.storageRef.child((metadata?.path)!).description])
+            self.USERS_REF?.child((user?.uid)!).setValue(["username":username,"email":email,"profileImg":self.storageRef.child((metadata?.path)!).description])
                 
                 ProgressHUD.showSuccess("Succeeded.")
                 

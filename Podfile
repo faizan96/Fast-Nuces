@@ -10,9 +10,10 @@ target 'FAST NUCES' do
   pod 'ProgressHUD' 	
   pod 'IQKeyboardManagerSwift'
   pod 'TRMosaicLayout'
-	pod 'Firebase/Core'
-   pod 'Firebase/Auth'
-   pod 'Firebase/Database'
-   pod 'Firebase/Storage'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'GoogleSignIn'
   
 end

@@ -54,7 +54,8 @@ class LoginVC: UIViewController {
                     return
                 }
                 ProgressHUD.dismiss()
-                AuthService.instance.switchNav()            })
+                AuthService.instance.switchNav()
+            })
             
         }
         else
@@ -66,7 +67,33 @@ class LoginVC: UIViewController {
     
     
     @IBAction func forgetPwdTapped(_ sender: Any) {
+        
+        if let email = emailField.text, !email.isEmpty
+        {
+            FIRAuth.auth()?.sendPasswordReset(withEmail: email, completion: { (error) in
+                
+                if error != nil
+                {
+                   print(error?.localizedDescription ?? "")
+                   SCLAlertView().showError("Error", subTitle: (error?.localizedDescription)!)
+                }
+                else
+                {
+                    SCLAlertView().showInfo("Email Sent", subTitle: "Check your email to Reset it")
+                }
+                
+            })
+        }
+        else
+        {
+            SCLAlertView().showWarning("Email Required", subTitle: "Enter email to Reset Password")
+        
+        }
+        
     }
+    
+    
+    
     
     
 

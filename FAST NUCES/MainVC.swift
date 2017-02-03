@@ -8,19 +8,20 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
-class MainVC: UIViewController {
+class MainVC: UIViewController,GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().clientID =
+        "1075154103681-e9va09nqfimvsgf9f0f5anm7ovstq4mv.apps.googleusercontent.com"
+      
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -37,5 +38,8 @@ class MainVC: UIViewController {
         })
     }
     
-
+    @IBAction func gmailTapped(_ sender: Any) {
+          GIDSignIn.sharedInstance().signIn()
+    }
+   
 }

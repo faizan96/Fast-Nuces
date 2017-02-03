@@ -103,7 +103,7 @@ extension SignUpVC: UIImagePickerControllerDelegate,UINavigationControllerDelega
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         selectedPhoto = info[UIImagePickerControllerEditedImage] as? UIImage
         self.profileImg.image = selectedPhoto
-        pickLbl.isEnabled = false
+        pickLbl.isHidden = true
         picker.dismiss(animated: true, completion: nil)
     }
     
