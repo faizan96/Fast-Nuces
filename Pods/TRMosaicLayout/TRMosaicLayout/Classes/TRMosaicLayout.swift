@@ -228,13 +228,6 @@ open class TRMosaicLayout: UICollectionViewLayout {
         return CGRect(x: originX, y: originY, width: cellWidth, height: cellHeight)
     }
     
-    /**
-     Calculates height for the given cell type
-     
-     - parameter cellType: Cell type
-     
-     - returns: Calculated height
-     */
     func cellContentHeightFor(mosaicCellType cellType:TRMosaicCellType) -> CGFloat {
         let height = delegate.heightForSmallMosaicCell()
         if cellType == .big {
@@ -255,6 +248,8 @@ open class TRMosaicLayout: UICollectionViewLayout {
         if cellType == .big {
             return width * 2
         }
+        
+        
         return width
     }
     

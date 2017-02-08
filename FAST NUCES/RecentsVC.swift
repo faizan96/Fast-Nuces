@@ -74,13 +74,12 @@ class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FavouritesCell
     
+      
         cell.postImg.image = UIImage(named: "watchkit-intro")
         
         
         return cell
     }
-    
-    
     
     
     

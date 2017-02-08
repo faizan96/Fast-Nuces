@@ -7,55 +7,55 @@
 //
 
 import UIKit
+import JSQMessagesViewController
 
-class ChatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ChatVC: JSQMessagesViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    var feedId : String!
-    @IBOutlet weak var msgField: UITextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 320, height: 60))
+        self.view.addSubview(navBar)
+       
+        
+        let navItem = UINavigationItem(title: "SomeTitle");
+        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: nil,  action: #selector(ChatVC.cancel));
+        navItem.rightBarButtonItem = doneItem;
+        navItem.rightBarButtonItem?.tintColor = UIColor.black
+        navBar.setItems([navItem], animated: false);
 
+        inputToolbar.contentView.leftBarButtonItem = nil
         
-        let bottomLayerEmail = CALayer()
-        bottomLayerEmail.frame = CGRect(x: 0, y: 39, width: 1000, height: 0.8)
-        bottomLayerEmail.backgroundColor = UIColor.white.cgColor
-        msgField.layer.addSublayer(bottomLayerEmail)
+        self.senderId = "1"
+        self.senderDisplayName = "Anonymous"
         
+        navBar.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        //self.title = "Chat Room"
+        view.addConstraint(NSLayoutConstraint(item: navBar, attribute: .top, relatedBy: .equal, toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1, constant: -20))
+        view.addConstraint(NSLayoutConstraint(item: navBar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,multiplier: 1, constant: 60))
+        view.addConstraint(NSLayoutConstraint(item: navBar, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0))
+        view.addConstraint(NSLayoutConstraint(item: navBar, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: -20))
+   
         
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        
-        tableView.backgroundView = UIImageView(image: UIImage(named: "main"))
-        tableView.tableFooterView = UIView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell2", for: indexPath) as! ChatCell
-        return cell
+        super.viewWillAppear(animated)
+        collectionView.backgroundView =  UIImageView(image: UIImage(named: "main"))
         
     }
+   
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
+    func cancel()
+    {
+        dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func cancelTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
     }
     
     

@@ -63,6 +63,6 @@ extension FavouritesVC: TRMosaicLayoutDelegate {
     }
     
     func heightForSmallMosaicCell() -> CGFloat {
-        return 150
+        return 200
     }
 }

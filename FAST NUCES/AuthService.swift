@@ -80,23 +80,9 @@ class AuthService
                     print(error.localizedDescription)
                     return
                 }
-                self.fileUrl = metadata?.downloadURLs![0].absoluteString
-                let changeRequest = user!.profileChangeRequest()
-                changeRequest.photoURL = NSURL(string: self.fileUrl) as URL?
-                changeRequest.commitChanges(completion: { (error) in
-                    
-                    if let error = error{
-                        
-                        print(error.localizedDescription)
-                    }
-                    else
-                    {
-                        print("Profile Updated")
-                    }
-                    
-                    
-                })
-            self.USERS_REF?.child((user?.uid)!).setValue(["username":username,"email":email,"profileImg":self.storageRef.child((metadata?.path)!).description])
+
+            let downloadURL = metadata?.downloadURL()?.absoluteString
+            self.USERS_REF?.child((user?.uid)!).setValue(["username":username,"email":email,"profileImg":downloadURL])
                 
                 ProgressHUD.showSuccess("Succeeded.")
                 

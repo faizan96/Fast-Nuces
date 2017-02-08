@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import Spring
+import FirebaseDatabase
+import FirebaseAuth
 
 class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    let deviceId = UIDevice.current.identifierForVendor?.uuidString
+    
+    @IBOutlet weak var userLbl: UILabel!
+    @IBOutlet weak var userImg: DesignableImageView!
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
@@ -23,6 +31,7 @@ class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.black
+        
         
     }
     
@@ -54,6 +63,8 @@ class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
     }
     
+
+
 
     
     

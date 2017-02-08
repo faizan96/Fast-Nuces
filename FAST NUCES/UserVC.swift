@@ -9,12 +9,15 @@
 import UIKit
 import FirebaseAuth
 import ProgressHUD
+import FirebaseDatabase
 
 class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
+    
+
     
     var user = [Users]()
     
@@ -32,18 +35,23 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         tap.numberOfTapsRequired = 1
         view.addGestureRecognizer(tap)
+
         
-        observeUser()
+       observeUser()
         
-        
+       
+    
     }
     
     
     
     func observeUser()
     {
-        ProgressHUD.show()
-        AuthService.instance.USERS_REF?.observeSingleEvent(of: .value, with: { (snapshot) in
+      
+        
+        AuthService.instance.USERS_REF?.observe(.value, with: { (snapshot) in
+            self.user = []
+            
             if let users = snapshot.value as? Dictionary<String,AnyObject>
             {
                 for (_, value) in users
@@ -52,18 +60,19 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
                     {
                         let imageUrl = dict["profileImg"] as! String
                         let username = dict["username"] as! String
-                        let user = Users(username: username, thumbnail: imageUrl)
-                        self.user.append(user)
+                        let email = dict["email"] as! String
+                        let user = Users(username: username, thumbnail: imageUrl,email: email)
+                         self.user.append(user)
                     }
-                    
+                
                 }
+                
             }
+            
             self.tableVIew.reloadData()
-            ProgressHUD.dismiss()
+            
+           
         })
-        
-        
-        
         
     }
 
@@ -93,6 +102,8 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         
         glassIconView?.image = glassIconView?.image?.withRenderingMode(.alwaysTemplate)
         glassIconView?.tintColor = UIColor.white
+        
+        
     }
     
     
@@ -108,9 +119,6 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
         cell.configureCell(users: users)
         return cell
         
-        
-        
-        
     }
     
     
@@ -119,5 +127,26 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     }
     
     
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

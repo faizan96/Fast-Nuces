@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class Users
 {
+    
    private var _username: String!
    private var _thumbnail : String!
-    
+    private var _email : String!
     
     var username : String
     {
@@ -24,11 +26,18 @@ class Users
         return _thumbnail
     }
     
-    init(username: String,thumbnail: String) {
-        self._username = username
-        self._thumbnail = thumbnail
+    var email : String
+    {
+        return _email
     }
     
+    init(username: String,thumbnail: String,email: String) {
+        
+        self._username = username
+        self._thumbnail = thumbnail
+        self._email = email
+    }
     
+
     
 }

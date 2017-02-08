@@ -24,6 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        UINavigationBar.appearance().barTintColor	=	UIColor.white
+        UINavigationBar.appearance().tintColor	=	UIColor.black
+       
+        
+        if	let	barFont	=	UIFont(name:	"Proxima Nova Alt Regular",	size:	26.0)	{
+            UINavigationBar.appearance().titleTextAttributes	=
+                [NSForegroundColorAttributeName:UIColor.white,	NSFontAttributeName:barFont]
+        }
         IQKeyboardManager.sharedManager().enable = true
         
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
