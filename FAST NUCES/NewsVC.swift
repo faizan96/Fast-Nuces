@@ -10,18 +10,26 @@ import UIKit
 import Spring
 import FirebaseDatabase
 import FirebaseAuth
+import ProgressHUD
+import ReachabilitySwift
+import SCLAlertView
+
 
 class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    let deviceId = UIDevice.current.identifierForVendor?.uuidString
     
-    @IBOutlet weak var userLbl: UILabel!
-    @IBOutlet weak var userImg: DesignableImageView!
-
+    @IBOutlet weak var tableView: UITableView!
+    var news = [News]()
+    
+    var reachability: Reachability?
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
         if revealViewController() != nil {
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -30,20 +38,61 @@ class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = UIColor.black
         
+       
+        observeData()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        setupReachability(nil, useClosures: true)
+        startNotifier()
+    }
+    
+    
+    
+    func observeData()
+    {
+        ProgressHUD.show()
+        DataService.instance.NEWS_REF.queryOrdered(byChild: "date").observe(.value, with: { (snapshot) in
+            
+            self.news = []
+            
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snap in snapshot {
+                    
+                    if let dict = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        let details = dict["details"] as! String
+                        let title = dict["title"] as! String
+                        let description = dict["description"] as! String
+                        let date = dict["date"] as! Int
+                        let imageUrl = dict["imageUrl"] as! String
+                        let news = News(postkey: "" ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
+                        self.news.append(news)
+                    }
+                }
+            }
+            ProgressHUD.dismiss()
+            self.tableView.reloadData()
+            
+        })
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return news.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NewsCell
         
-        cell.postImg.image = UIImage(named: "watchkit-intro")
+        let news = self.news[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NewsCell
+        cell.configureCell(news: news)
+        
         return cell
         
         
@@ -51,20 +100,61 @@ class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ChatVC"
+        if segue.identifier == "NewsDetailVC"
         {
-//            let cell = sender as! NewsCell
-//            let indexpath = tableView.indexPath(for: cell)
-//            let room = rooms[(indexpath?.row)!]
-//            let chatVC = segue.destination as! ChatVC
-//            chatVC.roomid = room.id
-            
+            let cell = sender as! NewsCell
+            let indexpath = tableView.indexPath(for: cell)
+            let news = self.news[(indexpath?.row)!]
+            let newsdetailVC = segue.destination as! NewsDetailVC
+            newsdetailVC.newstitle = news.title
+            newsdetailVC.newsdesc = news.description
+            newsdetailVC.newsImg = news.imageUrl
+            newsdetailVC.newsDetails = news.details
+            newsdetailVC.newsdate = news.date
             
         }
     }
     
+    
+    func setupReachability(_ hostName: String?, useClosures: Bool) {
+        
+        
+        let reachability = hostName == nil ? Reachability() : Reachability(hostname: hostName!)
+        self.reachability = reachability
+        
+        if useClosures {
+            reachability?.whenReachable = { reachability in
+                DispatchQueue.main.async {
+                    
+                }
+            }
+            reachability?.whenUnreachable = { reachability in
+                DispatchQueue.main.async {
+                    self.updateNotReachable(reachability)
+                }
+            }
+        }
+    }
+    
+    func startNotifier() {
+        print("--- start notifier")
+        do {
+            try reachability?.startNotifier()
+        } catch {
+            
+            return
+        }
+    }
+    
+    func updateNotReachable(_ reachability: Reachability) {
+        print("\(reachability.description) - \(reachability.currentReachabilityString)")
+        print("Faizan")
+        SCLAlertView().showWarning("Connection", subTitle: "You are out of Internet Connection")
+    }
+    
 
-
+    
+   
 
     
     

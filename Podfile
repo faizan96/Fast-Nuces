@@ -9,12 +9,12 @@ target 'FAST NUCES' do
   pod 'SCLAlertView'
   pod 'ProgressHUD' 	
   pod 'IQKeyboardManagerSwift'
-  pod 'TRMosaicLayout'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'GoogleSignIn'
   pod 'JSQMessagesViewController' 
-  
+  pod 'SDWebImage', '~>3.8'
+  pod 'ReachabilitySwift'
 end

@@ -9,9 +9,12 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
+import SCLAlertView
 
 class MainVC: UIViewController,GIDSignInUIDelegate {
 
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,5 +44,8 @@ class MainVC: UIViewController,GIDSignInUIDelegate {
     @IBAction func gmailTapped(_ sender: Any) {
           GIDSignIn.sharedInstance().signIn()
     }
+    
+
+    
    
 }

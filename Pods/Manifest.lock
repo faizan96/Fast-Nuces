@@ -62,9 +62,12 @@ PODS:
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
   - ProgressHUD (2.4)
+  - ReachabilitySwift (3)
   - SCLAlertView (0.7.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - Spring (1.0.3)
-  - TRMosaicLayout (1.0.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -75,9 +78,10 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - JSQMessagesViewController
   - ProgressHUD
+  - ReachabilitySwift
   - SCLAlertView
+  - SDWebImage (~> 3.8)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
-  - TRMosaicLayout
 
 EXTERNAL SOURCES:
   Spring:
@@ -108,10 +112,11 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   ProgressHUD: 4b66b0df0e08519c5c7283a198fd2867a114c95a
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
-  TRMosaicLayout: 1875505c48dd2877afd69a8bea7b4c1c63afa5b5
 
-PODFILE CHECKSUM: 838539c8c7befae27f3e29862243f02b1ed175e9
+PODFILE CHECKSUM: 0d177010aa74b7c328f376b8e52ffedc8fa1078b
 
 COCOAPODS: 1.1.1

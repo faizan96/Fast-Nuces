@@ -7,18 +7,42 @@
 //
 
 import UIKit
+import ProgressHUD
+import FirebaseDatabase
 
-class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource {
+class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    
     var parentNavigationController : UINavigationController?
+    
+    var recents = [Recent]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
+        ProgressHUD.show()
+        DataService.instance.NEWS_REF.queryOrdered(byChild: "date").observe(.value, with: { (snapshot) in
+            
+            self.recents = []
+            
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snap in snapshot {
+                    
+                    if let dict = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        let details = dict["details"] as! String
+                        let title = dict["title"] as! String
+                        let description = dict["description"] as! String
+                        let date = dict["date"] as! Int
+                        let imageUrl = dict["imageUrl"] as! String
+                        let recents = Recent(postkey: "" ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
+                        self.recents.append(recents)
+                    }
+                }
+            }
+            self.tableView.reloadData()
+            ProgressHUD.dismiss()
+        })
         
     }
     
@@ -31,23 +55,24 @@ class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UICo
     }
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return recents.count
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        let recent = self.recents[indexPath.row]
+        
         if indexPath.row % 2 == 0
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "raCell", for: indexPath) as! RecentCell
             
-            cell.postImg.image = UIImage(named: "watchkit-intro")
+            cell.configureCell(recent: recent)
             return cell
         }
         else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "raCell2", for: indexPath) as! RecentCell
-            
-            cell.postImg.image = UIImage(named: "watchkit-intro")
+            cell.configureCell(recent: recent)
             return cell
         
         }
@@ -64,21 +89,6 @@ class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UICo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FavouritesCell
-    
-      
-        cell.postImg.image = UIImage(named: "watchkit-intro")
-        
-        
-        return cell
     }
     
     

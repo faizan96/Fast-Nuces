@@ -12,8 +12,8 @@ import FirebaseDatabase
 class Users
 {
     
-   private var _username: String!
-   private var _thumbnail : String!
+    private var _username: String!
+    private var _thumbnail : String!
     private var _email : String!
     
     var username : String

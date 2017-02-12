@@ -30,16 +30,7 @@ class UsersCell: UITableViewCell {
         self.userLbl.text = users.username
         self.emailLbl.text = users.email
         let imageUrl = users.thumbnail
-        let ImgUrl = NSURL(string: imageUrl)
-        DispatchQueue.global(qos: .background).async {
-            let ImgData = NSData(contentsOf: ImgUrl! as URL)
-            let image = UIImage(data: ImgData! as Data);
-            
-            DispatchQueue.main.async {
-                self.userImg.image = image
-            }
-        }
-
+         userImg.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "profileImage"), options: [.continueInBackground,.progressiveDownload])
 
         
     }

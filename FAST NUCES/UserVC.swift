@@ -48,7 +48,7 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     func observeUser()
     {
       
-        
+        ProgressHUD.show()
         AuthService.instance.USERS_REF?.observe(.value, with: { (snapshot) in
             self.user = []
             
@@ -68,7 +68,7 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 }
                 
             }
-            
+            ProgressHUD.dismiss()
             self.tableVIew.reloadData()
             
            
