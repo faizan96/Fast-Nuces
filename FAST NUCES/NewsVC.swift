@@ -148,7 +148,7 @@ class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func updateNotReachable(_ reachability: Reachability) {
         print("\(reachability.description) - \(reachability.currentReachabilityString)")
-        print("Faizan")
+        ProgressHUD.dismiss()
         SCLAlertView().showWarning("Connection", subTitle: "You are out of Internet Connection")
     }
     

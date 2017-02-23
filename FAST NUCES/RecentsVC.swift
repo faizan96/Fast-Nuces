@@ -29,13 +29,13 @@ class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
                 for snap in snapshot {
                     
                     if let dict = snap.value as? Dictionary<String, AnyObject> {
-                        
+                        let key = snap.key
                         let details = dict["details"] as! String
                         let title = dict["title"] as! String
                         let description = dict["description"] as! String
                         let date = dict["date"] as! Int
                         let imageUrl = dict["imageUrl"] as! String
-                        let recents = Recent(postkey: "" ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
+                        let recents = Recent(postkey: key ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
                         self.recents.append(recents)
                     }
                 }
@@ -92,7 +92,19 @@ class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RecentDetailVC"
+        {
+            let cell = sender as! RecentCell
+            let indexpath = tableView.indexPath(for: cell)
+            let recent = self.recents[(indexpath?.row)!]
+            let recentdetailVC = segue.destination as! RecentDetailVC
+            recentdetailVC.RTitle = recent.title
+            recentdetailVC.RDesc = recent.description
+            recentdetailVC.RImage = recent.imageUrl
+            recentdetailVC.postkey = recent.postkey
+        }
+    }
     
     
     

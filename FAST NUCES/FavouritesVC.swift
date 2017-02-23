@@ -38,13 +38,13 @@ class FavouritesVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
                 for snap in snapshot {
                     
                     if let dict = snap.value as? Dictionary<String, AnyObject> {
-                        
+                        let key = snap.key
                         let details = dict["details"] as! String
                         let title = dict["title"] as! String
                         let description = dict["description"] as! String
                         let date = dict["date"] as! Int
                         let imageUrl = dict["imageUrl"] as! String
-                        let fav = Favourites(postkey: "" ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
+                        let fav = Favourites(postkey: key ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
                         self.favs.append(fav)
                     }
                 }
@@ -86,6 +86,21 @@ class FavouritesVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
             return CGSize(width: gridWidth, height: 270)
         }
         
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FavDetailVC"
+        {
+            let cell = sender as! FavouritesCell
+            let indexpath = collectionView.indexPath(for: cell)
+            let fav = self.favs[(indexpath?.row)!]
+            let fvdetailVC = segue.destination as! FavDetailVC
+            fvdetailVC.FTitle = fav.title
+            fvdetailVC.FDate = fav.date
+            fvdetailVC.FImage = fav.imageUrl
+            fvdetailVC.postkey = fav.postkey
+        }
     }
    
     

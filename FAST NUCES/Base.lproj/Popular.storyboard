@@ -18,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Fav DetailVC-->
+        <!--Recent DetailVC-->
         <scene sceneID="Lxo-Cw-Ejh">
             <objects>
-                <viewController id="FJN-KM-kir" customClass="FavDetailVC" customModule="FAST_NUCES" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FJN-KM-kir" customClass="RecentDetailVC" customModule="FAST_NUCES" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q8F-pJ-7LO"/>
                         <viewControllerLayoutGuide type="bottom" id="AdU-7n-uP8"/>
@@ -105,6 +105,23 @@
                                             <constraint firstAttribute="width" constant="45" id="ggo-vC-TxH"/>
                                         </constraints>
                                         <state key="normal" image="star"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
+                                                <color key="value" red="1" green="0.67450980390000004" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="dotFirstColor">
+                                                <color key="value" red="0.99607843139999996" green="0.65490196079999996" blue="0.027450980390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="dotSecondColor">
+                                                <color key="value" red="0.98823529409999999" green="0.4039215686" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="circleFromColor">
+                                                <color key="value" red="0.98823529409999999" green="0.4039215686" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="circleToColor">
+                                                <color key="value" red="1" green="0.67450980390000004" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1333333333" green="0.18039215689999999" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,7 +155,7 @@
                                         <color key="textColor" white="0.0" alpha="0.64194504310344824" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7y-30-cBP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7y-30-cBP" userLabel="999">
                                         <rect key="frame" x="38" y="0.0" width="34" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
@@ -171,10 +188,17 @@
                             <constraint firstItem="AdU-7n-uP8" firstAttribute="top" secondItem="i7G-3g-Owa" secondAttribute="bottom" constant="20" id="ypN-i5-B5U"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="caption" destination="OGm-Lr-Sv0" id="Vta-rw-MC0"/>
+                        <outlet property="postImg" destination="bKT-fF-f3i" id="ltO-eg-Z9U"/>
+                        <outlet property="recenttitle" destination="dFC-A1-CDu" id="J9Y-We-aDA"/>
+                        <outlet property="starButton" destination="wkn-8t-CdT" id="ITo-gB-N3v"/>
+                        <outlet property="starLbl" destination="f7y-30-cBP" id="pL0-K2-haR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XkN-Mq-IwI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4248.75" y="1666.9014084507041"/>
+            <point key="canvasLocation" x="4251" y="1706"/>
         </scene>
         <!--ChatVC-->
         <scene sceneID="uWQ-ht-Lzv">
@@ -291,7 +315,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watchkit-intro" translatesAutoresizingMaskIntoConstraints="NO" id="XQI-o1-Npj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKh-ov-lrh">
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKh-ov-lrh">
                                 <rect key="frame" x="0.0" y="288" width="320" height="280"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tus-7w-6Fp">
@@ -338,9 +362,9 @@
                                     <constraint firstItem="tus-7w-6Fp" firstAttribute="top" secondItem="xMM-F6-HAU" secondAttribute="bottom" constant="20" id="wbV-JD-62A"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xP-rO-3QT" customClass="DesignableButton" customModule="Spring">
+                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xP-rO-3QT">
                                 <rect key="frame" x="16" y="20" width="50" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.70374461206896555" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="1Ko-jL-qL4"/>
                                     <constraint firstAttribute="height" constant="50" id="m9b-E7-D8H"/>
@@ -351,12 +375,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <real key="value" value="0.40000000000000002"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="cancelTapped:" destination="2Wi-AG-ICx" eventType="touchUpInside" id="JDN-dv-MZg"/>
@@ -376,6 +394,10 @@
                             <constraint firstItem="0xP-rO-3QT" firstAttribute="top" secondItem="dWP-bQ-Bj8" secondAttribute="bottom" id="qr7-T4-13Y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="postImg" destination="XQI-o1-Npj" id="nG6-fo-iaL"/>
+                        <outlet property="postTitle" destination="Pl0-OK-G4x" id="rOx-9N-neX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59P-dJ-VGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -487,6 +509,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="AwU-c6-mbU" firstAttribute="top" secondItem="vlg-ZK-7vw" secondAttribute="top" constant="25" id="81l-iB-XW4"/>
                                                                 <constraint firstAttribute="bottom" secondItem="AwU-c6-mbU" secondAttribute="bottom" constant="25" id="WIi-tE-IMU"/>
@@ -500,6 +523,7 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="PQb-Q8-LNZ" secondAttribute="trailing" id="9OB-z1-xLn"/>
                                                 <constraint firstAttribute="bottom" secondItem="PQb-Q8-LNZ" secondAttribute="bottom" id="IMp-aq-ATF"/>
@@ -510,7 +534,7 @@
                                         <connections>
                                             <outlet property="postImg" destination="N6D-Zf-2vO" id="R88-nH-HHm"/>
                                             <outlet property="titleLbl" destination="AwU-c6-mbU" id="VcP-uv-WN6"/>
-                                            <segue destination="FJN-KM-kir" kind="show" identifier="RecentDetailVC" id="F14-d6-VAe"/>
+                                            <segue destination="FJN-KM-kir" kind="showDetail" identifier="RecentDetailVC" action="showViewController:sender:" id="F14-d6-VAe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -563,7 +587,7 @@
         <image name="watchkit-intro" width="1051" height="598"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F14-d6-VAe"/>
         <segue reference="par-cl-NQm"/>
+        <segue reference="F14-d6-VAe"/>
     </inferredMetricsTieBreakers>
 </document>

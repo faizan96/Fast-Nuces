@@ -28,7 +28,7 @@ class MenuVC: UITableViewController {
             let ImgUrl = NSURL(string: imageUrl)
             DispatchQueue.global(qos: .background).async {
                 let ImgData = NSData(contentsOf: ImgUrl! as URL)
-                let image = UIImage(data: ImgData! as Data);
+                let image = UIImage(data: ImgData! as Data)
                 
                 DispatchQueue.main.async {
                     self.userImg.image = image

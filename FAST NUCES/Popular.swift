@@ -77,53 +77,7 @@ class Popular: UIViewController, CAPSPageMenuDelegate {
         
     }
 
-    func didMoveToPage(_ controller: UIViewController, index: Int) {
-        print("did move to page")
-        
-        //        var color : UIColor = UIColor(red: 18.0/255.0, green: 150.0/255.0, blue: 225.0/255.0, alpha: 1.0)
-        //        var navColor : UIColor = UIColor(red: 17.0/255.0, green: 64.0/255.0, blue: 107.0/255.0, alpha: 1.0)
-        //
-        //        if index == 1 {
-        //            color = UIColor.orangeColor()
-        //            navColor = color
-        //        } else if index == 2 {
-        //            color = UIColor.grayColor()
-        //            navColor = color
-        //        } else if index == 3 {
-        //            color = UIColor.purpleColor()
-        //            navColor = color
-        //        }
-        //
-        //        UIView.animateWithDuration(0.5, animations: { () -> Void in
-        //            self.navigationController!.navigationBar.barTintColor = navColor
-        //        }) { (completed) -> Void in
-        //            println("did fade")
-        //        }
-    }
     
-    func willMoveToPage(_ controller: UIViewController, index: Int) {
-        print("will move to page")
-        
-        //        var color : UIColor = UIColor(red: 18.0/255.0, green: 150.0/255.0, blue: 225.0/255.0, alpha: 1.0)
-        //        var navColor : UIColor = UIColor(red: 17.0/255.0, green: 64.0/255.0, blue: 107.0/255.0, alpha: 1.0)
-        //
-        //        if index == 1 {
-        //            color = UIColor.orangeColor()
-        //            navColor = color
-        //        } else if index == 2 {
-        //            color = UIColor.grayColor()
-        //            navColor = color
-        //        } else if index == 3 {
-        //            color = UIColor.purpleColor()
-        //            navColor = color
-        //        }
-        //        
-        //        UIView.animateWithDuration(0.5, animations: { () -> Void in
-        //            self.navigationController!.navigationBar.barTintColor = navColor
-        //        }) { (completed) -> Void in
-        //            println("did fade")
-        //        }
-    }
     
 
 

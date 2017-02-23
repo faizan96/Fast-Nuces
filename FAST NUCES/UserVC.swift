@@ -11,19 +11,22 @@ import FirebaseAuth
 import ProgressHUD
 import FirebaseDatabase
 
-class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate {
 
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     
-
-    
-    var user = [Users]()
+        var inSearchMode = false
+        var filtereduser = [Users]()
+        var user = [Users]()
     
     override func viewDidLoad() {
       
         super.viewDidLoad()
+        
+         searchBar.delegate = self
+         searchBar.returnKeyType = UIReturnKeyType.done
         
         if revealViewController() != nil {
             menuButton.target = revealViewController()
@@ -109,15 +112,39 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if inSearchMode
+        {
+            return filtereduser.count
+        }
+        
         return user.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let users = user[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UsersCell
-        cell.configureCell(users: users)
-        return cell
+
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? UsersCell {
+            
+            let users: Users!
+            
+            if inSearchMode {
+                
+                users = filtereduser[indexPath.row]
+                cell.configureCell(users: users)
+                
+            } else {
+                
+                users = user[indexPath.row]
+                cell.configureCell(users: users)
+                
+            }
+            
+            return cell
+            
+        } else {
+            
+            return UITableViewCell()
+        }
         
     }
     
@@ -128,9 +155,31 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            
+            inSearchMode = false
+            tableVIew.reloadData()
+            view.endEditing(true)
+            
+        } else {
+            
+            inSearchMode = true
+            
+            let lower = searchBar.text!.lowercased()
+            
+            filtereduser = user.filter({$0.username.range(of: lower) != nil})
+            tableVIew.reloadData()
+            
+        }
+        
+    }
     
-    
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        view.endEditing(true)
+    }
     
     
     
