@@ -104,6 +104,11 @@ class FavouritesVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
     }
    
     
+    private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionat section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(50, 50, 50, 50)
+        
+    }
+    
 }
 
 

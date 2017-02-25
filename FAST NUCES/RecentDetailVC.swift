@@ -27,11 +27,11 @@ class RecentDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-          print(postkey)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) 
 
         caption.text = RDesc
         recenttitle.text = RTitle
-        
+      
         postImg.sd_setImage(with: URL(string: RImage), placeholderImage: UIImage(named: "preview"), options: [.continueInBackground,.progressiveDownload])
         
     }
@@ -43,10 +43,18 @@ class RecentDetailVC: UIViewController {
     }
     
     func faveButton(_ faveButton: FaveButton, didSelected selected: Bool){
-        print("faizan")
+        
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ChatVC"
+        {
+            let chatVC = segue.destination as? ChatVC
+            chatVC?.postId = postkey
+        }
+        
+    }
     
     
     

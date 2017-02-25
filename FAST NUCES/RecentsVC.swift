@@ -21,22 +21,17 @@ class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
         super.viewDidLoad()
        
         ProgressHUD.show()
-        DataService.instance.NEWS_REF.queryOrdered(byChild: "date").observe(.value, with: { (snapshot) in
+        DataService.instance.RECENT_REF.queryOrdered(byChild: "date").observe(.value, with: { (snapshot) in
             
             self.recents = []
             
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshot {
-                    
-                    if let dict = snap.value as? Dictionary<String, AnyObject> {
+
+                        if let postDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        let details = dict["details"] as! String
-                        let title = dict["title"] as! String
-                        let description = dict["description"] as! String
-                        let date = dict["date"] as! Int
-                        let imageUrl = dict["imageUrl"] as! String
-                        let recents = Recent(postkey: key ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
-                        self.recents.append(recents)
+                        let recent = Recent(postKey: key, postData: postDict)
+                        self.recents.append(recent)
                     }
                 }
             }
@@ -61,29 +56,14 @@ class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let recent = self.recents[indexPath.row]
-        
-        if indexPath.row % 2 == 0
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "raCell", for: indexPath) as! RecentCell
-            
-            cell.configureCell(recent: recent)
-            return cell
-        }
-        else
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "raCell2", for: indexPath) as! RecentCell
-            cell.configureCell(recent: recent)
-            return cell
-        
-        }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "raCell", for: indexPath) as! RecentCell
+        cell.configureCell(recent: recent)
+        return cell
         
     }
     
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180.0
+        return 150.0
     }
   
     
@@ -98,18 +78,15 @@ class RecentsVC: UIViewController,UITableViewDataSource,UITableViewDelegate{
             let cell = sender as! RecentCell
             let indexpath = tableView.indexPath(for: cell)
             let recent = self.recents[(indexpath?.row)!]
-            let recentdetailVC = segue.destination as! RecentDetailVC
+            let detailVC = segue.destination as! UINavigationController
+            let recentdetailVC = detailVC.topViewController as! RecentDetailVC
             recentdetailVC.RTitle = recent.title
             recentdetailVC.RDesc = recent.description
             recentdetailVC.RImage = recent.imageUrl
             recentdetailVC.postkey = recent.postkey
+            recentdetailVC.RStars = recent.star
         }
+        
     }
-    
-    
-    
-    
-    
-    
     
 }

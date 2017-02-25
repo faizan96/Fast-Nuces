@@ -57,6 +57,7 @@
 		B3EE4DD91E5052620053B1F0 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE4DD81E5052620053B1F0 /* CHTCollectionViewWaterfallLayout.swift */; };
 		B3F2EEA51E439AD200A7B71A /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2EEA41E439AD200A7B71A /* MenuVC.swift */; };
 		B3F2EEA71E44535600A7B71A /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F2EEA61E44535600A7B71A /* MenuCell.swift */; };
+		B3FA790C1E60639800A69CE2 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3FA790B1E60639800A69CE2 /* click.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		B3EE4DD81E5052620053B1F0 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		B3F2EEA41E439AD200A7B71A /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		B3F2EEA61E44535600A7B71A /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		B3FA790B1E60639800A69CE2 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
 		C79BC17CD0F43ABD13B28C34 /* Pods-FAST NUCES.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAST NUCES.release.xcconfig"; path = "Pods/Target Support Files/Pods-FAST NUCES/Pods-FAST NUCES.release.xcconfig"; sourceTree = "<group>"; };
 		C8D8A9FCA70D84FFF2D22138 /* Pods_FAST_NUCES.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FAST_NUCES.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36E7B50C970D5A5309B4E89 /* Pods-FAST NUCES.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAST NUCES.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FAST NUCES/Pods-FAST NUCES.debug.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		B3DDCABB1E4899B4004B94C3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				B3FA790B1E60639800A69CE2 /* click.wav */,
 				B369502B1E338D3A00E1E236 /* AppDelegate.swift */,
 				B369502F1E338D3A00E1E236 /* Main.storyboard */,
 				B3DDCAC41E489B98004B94C3 /* Users.storyboard */,
@@ -373,6 +376,7 @@
 				B36950331E338D3A00E1E236 /* Assets.xcassets in Resources */,
 				B3DDCAC31E489B6C004B94C3 /* Credit.storyboard in Resources */,
 				B36950311E338D3A00E1E236 /* Main.storyboard in Resources */,
+				B3FA790C1E60639800A69CE2 /* click.wav in Resources */,
 				B30CF40F1E4254E300BA6F9A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
