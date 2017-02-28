@@ -22,7 +22,7 @@ class RecentDetailVC: UIViewController {
     @IBOutlet weak var recenttitle: UILabel!
     @IBOutlet weak var starLbl: UILabel!
     @IBOutlet weak var postImg: DesignableImageView!
-    @IBOutlet weak var starButton: FaveButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,16 +42,12 @@ class RecentDetailVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func faveButton(_ faveButton: FaveButton, didSelected selected: Bool){
-        
-        
-    }
-    
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChatVC"
         {
             let chatVC = segue.destination as? ChatVC
-            chatVC?.postId = postkey
+            chatVC?.postid = postkey
         }
         
     }

@@ -17,15 +17,16 @@ class ChatVC: JSQMessagesViewController {
     var count = 0
     var message = [JSQMessage]()
     var avatarDict = [String: JSQMessagesAvatarImage]()
-    var postId: String!
+    var postid: String!
     let msgRef = FIRDatabase.database().reference().child("messages")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(postId)
+         inputToolbar.contentView.leftBarButtonItem = nil
+        print(postid)
         self.title = "Chat Room"
-        
+        msgRef.keepSynced(true)
         if let currentUser = FIRAuth.auth()?.currentUser
         {
             self.senderId = currentUser.uid
@@ -48,11 +49,10 @@ class ChatVC: JSQMessagesViewController {
     
     func observeMEssage()
     {
-        DataService.instance.FetchMsg(postId: postId) { (snap) in
-            
-            
+        DataService.instance.FetchMsg(postId: postid) { (snap) in
+        
             self.count = self.count + Int(snap.childrenCount)/2
-            DataService.instance.RECENT_REF.child(self.postId).child("comments").setValue(self.count)
+            DataService.instance.RECENT_REF.child(self.postid).child("comments").setValue(self.count)
             if let dict = snap.value as? [String:AnyObject]
             {
                 
@@ -80,16 +80,33 @@ class ChatVC: JSQMessagesViewController {
         AuthService.instance.USERS_REF?.child(id).observe(.value, with: { (snapshot) in
             let dict = snapshot.value as! Dictionary<String,AnyObject>
             let imageUrl = dict["profileImg"] as! String
-            let fileUrl = NSURL(string: imageUrl)
-            let data = NSData(contentsOf: fileUrl as! URL)
-            let image = UIImage(data: data as! Data)
-            let userImg = JSQMessagesAvatarImageFactory.avatarImage(with: image, diameter: 80)
-            self.avatarDict[id] = userImg
+            if imageUrl.hasPrefix("gs://")
+            {
+                
+            }
+            else
+            {
+                let fileUrl = NSURL(string: imageUrl)
+                
+                DispatchQueue.global(qos: .background).async {
+                let data = NSData(contentsOf: fileUrl as! URL)
+                let image = UIImage(data: data as! Data)
+                  DispatchQueue.main.async {
+                    let userImg = JSQMessagesAvatarImageFactory.avatarImage(with: image, diameter: 80)
+                    self.avatarDict[id] = userImg
+                    self.collectionView.reloadData()
+                    }
+                }
+            }
             self.collectionView.reloadData()
             
         })
         
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.collectionView.collectionViewLayout.springinessEnabled = true
     }
    
     
@@ -107,7 +124,7 @@ class ChatVC: JSQMessagesViewController {
         
         if let user = FIRAuth.auth()?.currentUser
         {
-            DataService.instance.CreateMsg(useruid: user.uid, postId: postId, content: text)
+            DataService.instance.CreateMsg(useruid: user.uid, postId: postid, content: text)
         }
         view.endEditing(true)
         

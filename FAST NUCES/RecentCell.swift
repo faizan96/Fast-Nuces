@@ -8,10 +8,9 @@
 
 import UIKit
 import FirebaseDatabase
-import AVFoundation
 import FirebaseAuth
 
-let myColor = UIColor(red: 100.0, green: 67.0, blue: 20.0, alpha: 1.0)
+
 
 class RecentCell: UITableViewCell {
 
@@ -20,17 +19,23 @@ class RecentCell: UITableViewCell {
     @IBOutlet weak var descLbl: UILabel!
     @IBOutlet weak var sratLbl: UILabel!
     @IBOutlet weak var commentLbl: UILabel!
-    @IBOutlet weak var starBtn: FaveButton!
+    @IBOutlet weak var starImg: UIImageView!
+    
     
     var starsRef: FIRDatabaseReference!
     var recent : Recent!
-    var music : AVAudioPlayer!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(starTapped))
+        tap.numberOfTapsRequired = 1
+        starImg.addGestureRecognizer(tap)
+        starImg.isUserInteractionEnabled = true
+       
     }
-
+    
+  
     func configureCell(recent : Recent)
     {
         let currentUser = FIRAuth.auth()?.currentUser?.uid
@@ -46,47 +51,36 @@ class RecentCell: UITableViewCell {
         
         starsRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let _ = snapshot.value as? NSNull {
-               self.starBtn.isSelected = false
+            //   self.starBtn.isSelected = false
+               self.starImg.image = UIImage(named: "star2")
             } else {
-               self.starBtn.isSelected = true
+             //  self.starBtn.isSelected = true
+                 self.starImg.image = UIImage(named: "star")
               
             }
         })
     }
     
-    func initAudio()
-    {
-        let path = Bundle.main.path(forResource: "click", ofType: "wav")
-        
-        
-        do{
-            music  = try AVAudioPlayer(contentsOf: URL(string: path!)!)
-            music.prepareToPlay()
-            music.play()
-        }
-        catch let err as NSError
-        {
-            print(err.debugDescription)
-        }
-    }
+  
     
-    @IBAction func starTapped(_ sender: Any) {
+     func starTapped(sender: UITapGestureRecognizer) {
        
         starsRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let _ = snapshot.value as? NSNull {
+                self.starImg.image = UIImage(named: "star")
                 self.recent.adjustLikes(addLike: true)
                 self.starsRef.setValue(true)
             } else {
+                self.starImg.image = UIImage(named: "star2")
                 self.recent.adjustLikes(addLike: false)
                 self.starsRef.removeValue()
             }
         })
+        Sound.play(file: "click.wav")
 
     }
     
-    @IBAction func commentTapped(_ sender: Any) {
-       print("Faizan naseem")
-    }
+    
     
     
 }

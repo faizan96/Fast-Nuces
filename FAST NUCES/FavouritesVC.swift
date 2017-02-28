@@ -15,8 +15,10 @@ private let reuseIdentifier = "faCell"
 
 class FavouritesVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,CHTCollectionViewDelegateWaterfallLayout {
     
+    @IBOutlet weak var carousal: iCarousel! 
     @IBOutlet weak var collectionView: UICollectionView!
     var parentNavigationController : UINavigationController?
+    var sliderCount = 0
     
     var favs = [Favourites]()
     
@@ -108,6 +110,8 @@ class FavouritesVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
         return UIEdgeInsetsMake(50, 50, 50, 50)
         
     }
+    
+    
     
 }
 
