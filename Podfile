@@ -17,4 +17,5 @@ target 'FAST NUCES' do
   pod 'JSQMessagesViewController' 
   pod 'SDWebImage', '~>3.8'
   pod 'ReachabilitySwift'
+  pod 'Firebase/AdMob'
 end

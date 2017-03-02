@@ -13,6 +13,7 @@ import FirebaseAuth
 import ProgressHUD
 import ReachabilitySwift
 import SCLAlertView
+import GoogleMobileAds
 
 
 class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -24,10 +25,16 @@ class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var reachability: Reachability?
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let request = GADRequest()
+        request.testDevices = [ "0b28d9ebfd04b2a330f86603fafb690a" ]
+        bannerView?.adUnitID = "ca-app-pub-5765623355505954/8482691426"
+        bannerView?.rootViewController = self
+        bannerView?.load(request)
         
         
         if revealViewController() != nil {

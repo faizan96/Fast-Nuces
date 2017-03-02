@@ -63,6 +63,7 @@ class LoginVC: UIViewController {
             ProgressHUD.dismiss()
             SCLAlertView().showWarning("Email & Password", subTitle: "You must enter email and password")
         }
+         Sound.play(file: "enter.wav")
     }
     
     

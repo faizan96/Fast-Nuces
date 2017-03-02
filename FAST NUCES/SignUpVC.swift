@@ -92,6 +92,8 @@ class SignUpVC: UIViewController {
             SCLAlertView().showWarning("All Fields", subTitle: "You must enter the all fields")
         }
         
+        Sound.play(file: "enter.wav")
+        
     }
     
     

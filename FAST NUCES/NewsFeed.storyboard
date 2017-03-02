@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="180" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a6M-iW-oXz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="180" id="cgs-g5-hio" customClass="NewsCell" customModule="FAST_NUCES" customModuleProvider="target">
@@ -83,12 +83,21 @@
                                     <outlet property="delegate" destination="cZz-dE-1VC" id="kC2-tG-Z6c"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciD-Uh-R1i" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="anQ-bc-tHi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cYg-f6-KIr" firstAttribute="top" secondItem="ciD-Uh-R1i" secondAttribute="bottom" id="1cu-Ah-Wu8"/>
+                            <constraint firstItem="ciD-Uh-R1i" firstAttribute="leading" secondItem="xxk-kZ-1rF" secondAttribute="leading" id="IWa-Kd-1wJ"/>
+                            <constraint firstAttribute="trailing" secondItem="ciD-Uh-R1i" secondAttribute="trailing" id="KPp-qv-Mmz"/>
                             <constraint firstItem="a6M-iW-oXz" firstAttribute="top" secondItem="xxk-kZ-1rF" secondAttribute="top" id="az3-Rf-XF1"/>
                             <constraint firstItem="a6M-iW-oXz" firstAttribute="leading" secondItem="xxk-kZ-1rF" secondAttribute="leading" id="dfC-tM-ezm"/>
-                            <constraint firstItem="cYg-f6-KIr" firstAttribute="top" secondItem="a6M-iW-oXz" secondAttribute="bottom" id="oZc-Ks-NZv"/>
+                            <constraint firstItem="cYg-f6-KIr" firstAttribute="top" secondItem="a6M-iW-oXz" secondAttribute="bottom" constant="50" id="oZc-Ks-NZv"/>
                             <constraint firstAttribute="trailing" secondItem="a6M-iW-oXz" secondAttribute="trailing" id="sbv-1O-lFZ"/>
                         </constraints>
                     </view>
@@ -98,13 +107,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bannerView" destination="ciD-Uh-R1i" id="8qk-qt-rHB"/>
                         <outlet property="menuButton" destination="Xvk-OM-z3e" id="Hgy-QJ-xhK"/>
                         <outlet property="tableView" destination="a6M-iW-oXz" id="Vpy-5W-7m9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xrv-t1-Cl2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2549.5999999999999" y="1025.0374812593705"/>
+            <point key="canvasLocation" x="2548.125" y="1024.6478873239437"/>
         </scene>
         <!--Detail-->
         <scene sceneID="pih-V5-i3l">

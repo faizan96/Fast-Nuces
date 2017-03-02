@@ -266,7 +266,7 @@
                                         <rect key="frame" x="0.0" y="168" width="320" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wxQ-M0-UFn" id="Wd3-ji-FGM">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MiW-bO-j5j">
@@ -299,7 +299,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SCc-6H-lY2">
-                                                    <rect key="frame" x="153" y="119" width="154" height="25"/>
+                                                    <rect key="frame" x="153" y="118" width="154" height="25"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9QZ-Yo-PjM">
                                                             <rect key="frame" x="0.0" y="0.0" width="69.5" height="25"/>
@@ -310,6 +310,9 @@
                                                                         <constraint firstAttribute="width" constant="25" id="4nw-be-poc"/>
                                                                         <constraint firstAttribute="height" constant="25" id="CSs-23-554"/>
                                                                     </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yib-Jo-cch">
                                                                     <rect key="frame" x="30" y="0.0" width="39.5" height="25"/>
@@ -356,7 +359,7 @@
                                             <outlet property="descLbl" destination="nwx-8R-x7x" id="oxw-DF-msu"/>
                                             <outlet property="postImg" destination="MiW-bO-j5j" id="cyI-Q2-LJZ"/>
                                             <outlet property="sratLbl" destination="Yib-Jo-cch" id="hdt-k7-DAp"/>
-                                            <outlet property="starImg" destination="ZEN-L8-dYS" id="O9r-Gu-azl"/>
+                                            <outlet property="starImg" destination="ZEN-L8-dYS" id="MBz-VD-PGI"/>
                                             <outlet property="titleLbl" destination="Kmz-cF-SSb" id="eKd-Go-YfU"/>
                                             <segue destination="gAc-c3-XUT" kind="showDetail" identifier="RecentDetailVC" id="fAK-ot-kRP"/>
                                         </connections>

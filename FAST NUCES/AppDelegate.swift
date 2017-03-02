@@ -11,7 +11,7 @@ import IQKeyboardManagerSwift
 import Firebase
 import GoogleSignIn
 import ProgressHUD
-
+import GoogleMobileAds
 
 
 
@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         FIRApp.configure()
+        
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-5765623355505954~7005958226")
         return true
     }
     

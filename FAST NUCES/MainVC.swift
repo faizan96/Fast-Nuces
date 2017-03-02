@@ -42,7 +42,9 @@ class MainVC: UIViewController,GIDSignInUIDelegate {
     }
     
     @IBAction func gmailTapped(_ sender: Any) {
+            Sound.play(file: "enter.wav")
           GIDSignIn.sharedInstance().signIn()
+        
     }
     
 

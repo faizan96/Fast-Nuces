@@ -91,19 +91,19 @@ class FavouritesVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "FavDetailVC"
-        {
-            let cell = sender as! FavouritesCell
-            let indexpath = collectionView.indexPath(for: cell)
-            let fav = self.favs[(indexpath?.row)!]
-            let fvdetailVC = segue.destination as! FavDetailVC
-            fvdetailVC.FTitle = fav.title
-            fvdetailVC.FDate = fav.date
-            fvdetailVC.FImage = fav.imageUrl
-            fvdetailVC.postkey = fav.postkey
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "FavDetailVC"
+//        {
+//            let cell = sender as! FavouritesCell
+//            let indexpath = collectionView.indexPath(for: cell)
+//            let fav = self.favs[(indexpath?.row)!]
+//            let fvdetailVC = segue.destination as! FavDetailVC
+//            fvdetailVC.FTitle = fav.title
+//            fvdetailVC.FDate = fav.date
+//            fvdetailVC.FImage = fav.imageUrl
+//            fvdetailVC.postkey = fav.postkey
+//        }
+//    }
    
     
     private func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionat section: Int) -> UIEdgeInsets {
