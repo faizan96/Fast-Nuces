@@ -41,13 +41,16 @@ class FavouritesVC: UIViewController,UICollectionViewDelegate,UICollectionViewDa
                     
                     if let dict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        let details = dict["details"] as! String
-                        let title = dict["title"] as! String
-                        let description = dict["description"] as! String
-                        let date = dict["date"] as! Int
-                        let imageUrl = dict["imageUrl"] as! String
-                        let fav = Favourites(postkey: key ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
-                        self.favs.append(fav)
+//                        let title = dict["title"] as! String
+//                        let imageUrl = dict["imageUrl"] as! String
+//                        let fav = Favourites(postkey: key ,title: title,imageUrl: imageUrl)
+//                        self.favs.append(fav)
+                        if let title = dict["title"] as? String, let imageUrl = dict["imageUrl"] as? String
+                        {
+                            let fav = Favourites(postkey: key ,title: title,imageUrl: imageUrl)
+                            self.favs.append(fav)
+                        }
+                        
                     }
                 }
             }

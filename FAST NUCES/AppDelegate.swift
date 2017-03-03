@@ -40,6 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         FIRApp.configure()
         
         GADMobileAds.configure(withApplicationID: "ca-app-pub-5765623355505954~7005958226")
+        
+        
+
+        if FIRAuth.auth()?.currentUser != nil
+        {
+            AuthService.instance.switchNav()
+        }
+        
+        
         return true
     }
     

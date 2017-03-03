@@ -72,13 +72,21 @@ class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     
                     if let dict = snap.value as? Dictionary<String, AnyObject> {
                         
-                        let details = dict["details"] as! String
-                        let title = dict["title"] as! String
-                        let description = dict["description"] as! String
-                        let date = dict["date"] as! Int
-                        let imageUrl = dict["imageUrl"] as! String
-                        let news = News(postkey: "" ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
-                        self.news.append(news)
+//                        let details = dict["details"] as! String
+//                        let title = dict["title"] as! String
+//                        let description = dict["description"] as! String
+//                        let date = dict["date"] as! Int
+//                        let imageUrl = dict["imageUrl"] as! String
+//                        let news = News(postkey: "" ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
+//                        self.news.append(news)
+                        
+                        if let details = dict["details"] as? String, let title = dict["title"] as? String,
+                        let description = dict["description"] as? String, let date = dict["date"] as? Int,
+                        let imageUrl = dict["imageUrl"] as? String
+                        {
+                            let news = News(postkey: "" ,title: title, description: description, date: date, details: details, imageUrl: imageUrl)
+                            self.news.append(news)
+                        }
                     }
                 }
             }

@@ -61,11 +61,17 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
                 {
                     if let dict = value as? Dictionary<String,AnyObject>
                     {
-                        let imageUrl = dict["profileImg"] as! String
-                        let username = dict["username"] as! String
-                        let email = dict["email"] as! String
-                        let user = Users(username: username, thumbnail: imageUrl,email: email)
-                         self.user.append(user)
+//                        let imageUrl = dict["profileImg"] as! String
+//                        let username = dict["username"] as! String
+//                        let email = dict["email"] as! String
+//                        let user = Users(username: username, thumbnail: imageUrl,email: email)
+//                         self.user.append(user)
+                        if let imageUrl = dict["profileImg"] as? String, let username = dict["username"] as? String,let email = dict["email"] as? String
+                        {
+                            let user = Users(username: username, thumbnail: imageUrl,email: email)
+                            self.user.append(user)
+                        }
+                        
                     }
                 
                 }

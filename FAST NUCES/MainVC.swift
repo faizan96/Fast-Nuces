@@ -29,16 +29,16 @@ class MainVC: UIViewController,GIDSignInUIDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
-            if user != nil
-            {
-                AuthService.instance.switchNav()
-            }
-            else
-            {
-                print("Unauthorized")
-            }
-        })
+//        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+//            if user != nil
+//            {
+//                AuthService.instance.switchNav()
+//            }
+//            else
+//            {
+//                print("Unauthorized")
+//            }
+//        })
     }
     
     @IBAction func gmailTapped(_ sender: Any) {

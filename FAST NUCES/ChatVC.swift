@@ -43,7 +43,6 @@ class ChatVC: JSQMessagesViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.backgroundView =  UIImageView(image: UIImage(named: "main"))
-        
     }
     
     
