@@ -144,7 +144,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast Nuces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXo-k9-qN5">
-                                <rect key="frame" x="50" y="202" width="220" height="84"/>
+                                <rect key="frame" x="46" y="202" width="228" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="aEJ-05-Yii"/>
                                 </constraints>
@@ -556,8 +556,8 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="An6-i1-LK3">
-                                        <rect key="frame" x="124" y="106" width="73" height="18.5"/>
-                                        <fontDescription key="fontDescription" name="ProximaNovaA-Regular" family="Proxima Nova Alt" pointSize="15"/>
+                                        <rect key="frame" x="118.5" y="96" width="84.5" height="20"/>
+                                        <fontDescription key="fontDescription" name="ProximaNovaA-Regular" family="Proxima Nova Alt" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -572,7 +572,7 @@
                                     <constraint firstItem="5IE-PI-qiG" firstAttribute="centerX" secondItem="jdi-Jj-JTE" secondAttribute="centerX" id="JtB-60-bEM"/>
                                     <constraint firstItem="8BQ-C1-CW8" firstAttribute="centerX" secondItem="jdi-Jj-JTE" secondAttribute="centerX" id="hi1-CN-cPg"/>
                                     <constraint firstItem="An6-i1-LK3" firstAttribute="centerX" secondItem="jdi-Jj-JTE" secondAttribute="centerX" id="kaT-1O-KSx"/>
-                                    <constraint firstItem="An6-i1-LK3" firstAttribute="top" secondItem="8BQ-C1-CW8" secondAttribute="bottom" constant="-50" id="wRe-g9-6tf"/>
+                                    <constraint firstItem="An6-i1-LK3" firstAttribute="top" secondItem="8BQ-C1-CW8" secondAttribute="bottom" constant="-60" id="wRe-g9-6tf"/>
                                 </constraints>
                             </view>
                         </subviews>

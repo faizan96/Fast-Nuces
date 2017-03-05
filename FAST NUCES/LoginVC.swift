@@ -41,7 +41,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func signInTapped(_ sender: Any) {
-        ProgressHUD.show("Please wait.....")
+        ProgressHUD.show("Authorizing..")
         
         if let email = emailField.text, !email.isEmpty , let password = passwordField.text, !password.isEmpty
         {

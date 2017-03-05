@@ -10,8 +10,11 @@ import UIKit
 import Spring
 import ProgressHUD
 import SCLAlertView
+import Lightbox
+import ImagePicker
 
-class SignUpVC: UIViewController {
+
+class SignUpVC: UIViewController,ImagePickerDelegate {
     
     
     @IBOutlet weak var pickLbl: UILabel!
@@ -20,9 +23,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailField: DesignableTextField!
     @IBOutlet weak var usernameField: DesignableTextField!
     
-    
-    let imagePicker  = UIImagePickerController()
-    var selectedPhoto : UIImage!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +54,10 @@ class SignUpVC: UIViewController {
     
     func selectPhoto(tap : UITapGestureRecognizer)
     {
-        
-        self.imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        self.imagePicker.sourceType = .photoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
+        let imagePicker = ImagePickerController()
+        imagePicker.imageLimit = 1
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
     }
     
 
@@ -67,7 +67,7 @@ class SignUpVC: UIViewController {
   
     @IBAction func signUpTapped(_ sender: Any) {
         
-        ProgressHUD.show("Please Wait....")
+        ProgressHUD.show("Authorizing..")
         
         if let username = usernameField.text , !username.isEmpty, let email = emailField.text, !email.isEmpty , let password = pwdField.text, !password.isEmpty
         {
@@ -96,21 +96,31 @@ class SignUpVC: UIViewController {
         
     }
     
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
     
-
-}
-
-extension SignUpVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate
-{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        selectedPhoto = info[UIImagePickerControllerEditedImage] as? UIImage
-        self.profileImg.image = selectedPhoto
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        guard images.count > 0 else { return }
+        
+        let lightboxImages = images.map {
+            return LightboxImage(image: $0)
+        }
+        
+        let lightbox = LightboxController(images: lightboxImages, startIndex: 0)
+        imagePicker.present(lightbox, animated: true, completion: nil)
+    }
+    
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        imagePicker.dismiss(animated: true, completion: nil)
+        print(images.count)
+        profileImg.image = images[0]
         pickLbl.isHidden = true
-        picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    
+
 }
+
+
 

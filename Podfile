@@ -18,4 +18,6 @@ target 'FAST NUCES' do
   pod 'SDWebImage', '~>3.8'
   pod 'ReachabilitySwift'
   pod 'Firebase/AdMob'
+  pod 'Lightbox'
+  pod 'ImagePicker'
 end

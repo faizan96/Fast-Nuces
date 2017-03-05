@@ -12,12 +12,11 @@ import SafariServices
 class AboutVC: UITableViewController {
     
 
-    var sectionTitles = ["Leave Feedback", "Follow Us","Credits"]
-    var sectionContent = [["Rate us on The App Store"],["Website","Twitter","Facebook"],["Icons in App"]]
-    var links = ["http://goo.gl/u3rqmi", "https://twitter.com/faizannaseem96", "https://www.facebook.com/faizannasimansari"]
-    var links2 = ["https://twitter.com/faizannaseem96"]
-    var links3 = ["http://www.flaticon.com/"]
-    
+    var sectionTitles = ["About", "Follow Us","Credits","Developer"]
+    var sectionContent = [["This app has a credit which goes to Fast University Karachi. This app will update students about the events and competitions collaborating with Fast Photographers Club and Fast Event Updates."],["Website","Facebook"],["Icons use in App By Freepik"],["Facebook","LinkedIn"]]
+    var links = ["http://khi.nu.edu.pk/", "https://www.facebook.com/groups/567119140160307/"]
+    var links3 = ["http://www.flaticon.com/authors/freepik"]
+    var links4 = ["https://www.facebook.com/faizannasimansari", "https://www.linkedin.com/in/faizan-naseem-945a14139/"]
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -32,7 +31,8 @@ class AboutVC: UITableViewController {
         }
         
         tableView.tableFooterView	=	UIView(frame:	CGRect.zero)
-        
+        tableView.estimatedRowHeight = 85.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         
     }
 
@@ -55,20 +55,13 @@ class AboutVC: UITableViewController {
         IndexPath)	->	UITableViewCell	{
         let	cell	=	tableView.dequeueReusableCell(withIdentifier:	"Cell",	for:
             indexPath)
-        
+        cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text	=	sectionContent[indexPath.section][indexPath.row]
         return	cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
-        
-        case 0:
-            if let url = URL(string: links2[indexPath.row]) {
-                let safariController = SFSafariViewController(url: url)
-                present(safariController, animated: true, completion: nil)
-            }
-            
         
         case 1:
             if let url = URL(string: links[indexPath.row]) {
@@ -81,6 +74,12 @@ class AboutVC: UITableViewController {
                 let safariController = SFSafariViewController(url: url)
                 present(safariController, animated: true, completion: nil)
             }
+        case 3:
+            if let url = URL(string: links4[indexPath.row]) {
+                let safariController = SFSafariViewController(url: url)
+                present(safariController, animated: true, completion: nil)
+            }
+   
             
         default:
             break
@@ -90,6 +89,5 @@ class AboutVC: UITableViewController {
     }
     
     
-
 
 }

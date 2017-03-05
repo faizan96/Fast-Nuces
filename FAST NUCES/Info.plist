@@ -32,7 +32,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To Take Photos</string>
+	<string>To Take Photos For Your Profile</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Proxima Nova Alt Regular.otf</string>
@@ -58,5 +58,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>To Take Your Profile Image</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location</string>
 </dict>
 </plist>

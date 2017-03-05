@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         }
         else
         {
-            ProgressHUD.show("Please Wait...")
+            ProgressHUD.show("Authorizing...")
             print("Successfully loggin with gmail")
             
             guard let authentication = Guser.authentication else { return }

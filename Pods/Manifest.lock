@@ -61,10 +61,14 @@ PODS:
   - GTMSessionFetcher/Core (1.1.7)
   - GTMSessionFetcher/Full (1.1.7):
     - GTMSessionFetcher/Core (= 1.1.7)
+  - Hue (2.0.1)
+  - ImagePicker (2.0.0)
   - IQKeyboardManagerSwift (4.0.8)
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - Lightbox (1.0.0):
+    - Hue
   - ProgressHUD (2.4)
   - ReachabilitySwift (3)
   - SCLAlertView (0.7.0)
@@ -80,8 +84,10 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - GoogleSignIn
+  - ImagePicker
   - IQKeyboardManagerSwift
   - JSQMessagesViewController
+  - Lightbox
   - ProgressHUD
   - ReachabilitySwift
   - SCLAlertView
@@ -114,15 +120,18 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  Hue: 354caec055fdc9d38b5ef33ca2e7224721843baf
+  ImagePicker: 81175d36c2852cb543cb4f5d6c19e28f3e8d90eb
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Lightbox: 13f55a0a840f7945dc5ac87931564e7fe569fca9
   ProgressHUD: 4b66b0df0e08519c5c7283a198fd2867a114c95a
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
 
-PODFILE CHECKSUM: 06a7eb02809a7c5116ab056b4412152ea056c6cb
+PODFILE CHECKSUM: 6cea9f8c1e8ffe2af63c315ee69329178f89c068
 
 COCOAPODS: 1.1.1
