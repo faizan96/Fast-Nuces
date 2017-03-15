@@ -41,8 +41,7 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
 
         
        observeUser()
-        
-       
+               
     
     }
     
@@ -94,8 +93,11 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        
         tableVIew.backgroundView = UIImageView(image: UIImage(named: "main"))
         tableVIew.tableFooterView = UIView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+        
+        
         
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = UIColor.white
@@ -173,7 +175,7 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
             
             inSearchMode = true
             
-            let lower = searchBar.text!.lowercased()
+            let lower = searchBar.text!.capitalized
             
             filtereduser = user.filter({$0.username.range(of: lower) != nil})
             tableVIew.reloadData()
@@ -188,9 +190,7 @@ class UserVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearc
     }
     
     
-    
-    
-    
+
     
     
     

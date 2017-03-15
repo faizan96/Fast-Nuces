@@ -23,7 +23,9 @@ class DataService{
     private var _NEWS_REF = DB_BASE.child("newsfeed")
     private var _RECENT_REF = DB_BASE.child("recent")
     private var _STAR_REF = DB_BASE.child("stars")
-    private var _MSG_REF = FIRDatabase.database().reference().child("messages")
+    private var _MSG_REF = DB_BASE.child("messages")
+    private var _FAC_REF = DB_BASE.child("faculty")
+    private var _SOC_REF = DB_BASE.child("society")
     
     static var instance: DataService
     {
@@ -61,6 +63,15 @@ class DataService{
         return _MSG_REF
     }
     
+    var FAC_REF : FIRDatabaseReference
+    {
+        return _FAC_REF
+    }
+    
+    var SOC_REF : FIRDatabaseReference
+    {
+        return _SOC_REF
+    }
     
     
     func CreateMsg(useruid: String,postId: String,content: String)
@@ -81,8 +92,7 @@ class DataService{
             DataService.instance._MSG_REF.child(snapshot.key).observe(.value, with: { (shots) in
                 
                 callback(shots)
-//                print("Faizan : \(self.count)")
-//                DataService.instance.RECENT_REF.child(postId).child("comments").setValue(self.count)
+
             })
             
         })

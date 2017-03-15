@@ -24,7 +24,7 @@ class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var reachability: Reachability?
     
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
@@ -37,12 +37,7 @@ class NewsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         bannerView?.load(request)
         
         
-        if revealViewController() != nil {
-            menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+        
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         

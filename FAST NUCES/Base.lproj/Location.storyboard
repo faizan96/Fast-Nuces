@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FRi-D3-pn3">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Proxima Nova Alt Regular.otf">
+            <string>ProximaNovaA-Regular</string>
+        </array>
+        <array key="Proxima Nova Light.otf">
+            <string>ProximaNova-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--LocationVC-->
+        <scene sceneID="ckI-ss-AjD">
+            <objects>
+                <viewController id="CAz-Sr-8yF" customClass="LocationVC" customModule="FAST_NUCES" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g2A-bw-k7W"/>
+                        <viewControllerLayoutGuide type="bottom" id="bex-hH-jMt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4gX-M6-CLM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s5a-ai-476">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="pcG-Ib-DHJ">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pcG-Ib-DHJ" id="tFp-xl-hiL">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CY5-zf-a7s">
+                                                    <rect key="frame" x="8" y="8" width="304" height="84"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FAST-NU_Karachi" translatesAutoresizingMaskIntoConstraints="NO" id="OtF-gV-UOB">
+                                                            <rect key="frame" x="6" y="6" width="130" height="72"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="130" id="HtY-Mm-4vP"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SrS-KV-B3n">
+                                                            <rect key="frame" x="142" y="6" width="156" height="72"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Fast University " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhN-fR-j9M">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="156" height="37.5"/>
+                                                                    <fontDescription key="fontDescription" name="ProximaNovaA-Regular" family="Proxima Nova Alt" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ST-4 Sector 17-D, National Highway Karachi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckP-Bf-Nj8">
+                                                                    <rect key="frame" x="0.0" y="37.5" width="156" height="34.5"/>
+                                                                    <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="14"/>
+                                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="OtF-gV-UOB" firstAttribute="top" secondItem="CY5-zf-a7s" secondAttribute="top" constant="6" id="3mj-ta-Zj5"/>
+                                                        <constraint firstItem="SrS-KV-B3n" firstAttribute="top" secondItem="CY5-zf-a7s" secondAttribute="top" constant="6" id="H8B-D3-0XP"/>
+                                                        <constraint firstAttribute="bottom" secondItem="SrS-KV-B3n" secondAttribute="bottom" constant="6" id="Nak-X2-Aek"/>
+                                                        <constraint firstItem="OtF-gV-UOB" firstAttribute="leading" secondItem="CY5-zf-a7s" secondAttribute="leading" constant="6" id="Vgg-Ui-70b"/>
+                                                        <constraint firstAttribute="bottom" secondItem="OtF-gV-UOB" secondAttribute="bottom" constant="6" id="iim-Hj-TOh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="SrS-KV-B3n" secondAttribute="trailing" constant="6" id="szG-ab-0ha"/>
+                                                        <constraint firstItem="SrS-KV-B3n" firstAttribute="leading" secondItem="CY5-zf-a7s" secondAttribute="leading" constant="142" id="yJe-hc-E8w"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CY5-zf-a7s" firstAttribute="leading" secondItem="tFp-xl-hiL" secondAttribute="leading" constant="8" id="4KM-xP-wvS"/>
+                                                <constraint firstAttribute="bottom" secondItem="CY5-zf-a7s" secondAttribute="bottom" constant="8" id="LjX-Fz-w2c"/>
+                                                <constraint firstAttribute="trailing" secondItem="CY5-zf-a7s" secondAttribute="trailing" constant="8" id="Sob-e9-9Hy"/>
+                                                <constraint firstItem="CY5-zf-a7s" firstAttribute="top" secondItem="tFp-xl-hiL" secondAttribute="top" constant="8" id="YPp-1V-qH2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qQe-eV-ihX" kind="show" id="SGO-h8-rlO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CAz-Sr-8yF" id="oPy-9z-QcY"/>
+                                    <outlet property="delegate" destination="CAz-Sr-8yF" id="ix3-bl-Yz6"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="s5a-ai-476" secondAttribute="trailing" id="Iug-3j-T9t"/>
+                            <constraint firstItem="s5a-ai-476" firstAttribute="top" secondItem="g2A-bw-k7W" secondAttribute="bottom" constant="-64" id="JJG-r8-2iM"/>
+                            <constraint firstItem="s5a-ai-476" firstAttribute="leading" secondItem="4gX-M6-CLM" secondAttribute="leading" id="LpI-A4-EUW"/>
+                            <constraint firstItem="bex-hH-jMt" firstAttribute="top" secondItem="s5a-ai-476" secondAttribute="bottom" id="inD-Np-S7l"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WLl-5j-hXy">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="782-8t-bSm">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="782-8t-bSm" id="PAu-EK-XJx"/>
+                        <outlet property="tableView" destination="s5a-ai-476" id="a8h-cW-bCR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ou9-6f-CnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2182.5" y="1480.9859154929577"/>
+        </scene>
+        <!--Location DetailVC-->
+        <scene sceneID="vau-8s-Who">
+            <objects>
+                <viewController id="qQe-eV-ihX" customClass="LocationDetailVC" customModule="FAST_NUCES" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aCF-qj-rF5"/>
+                        <viewControllerLayoutGuide type="bottom" id="fqG-Xc-5jr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MMU-Qr-0Gd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="224" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BqY-kn-MIF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FAST-NU_Karachi" id="ElW-Cz-khh">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" id="40o-Sr-exd">
+                                    <rect key="frame" x="0.0" y="380" width="320" height="126"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </mapView>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="224" id="JBB-FJ-75z">
+                                        <rect key="frame" x="0.0" y="156" width="320" height="224"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JBB-FJ-75z" id="gL6-8Y-sEv">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="5J8-xu-wI3">
+                                                    <rect key="frame" x="10" y="10" width="300" height="214"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Fast University Karachi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5R-e1-Uk2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="22"/>
+                                                            <fontDescription key="fontDescription" name="ProximaNovaA-Regular" family="Proxima Nova Alt" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="ST-4 Sector 17-D, On National Highway" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgG-Gb-EK8">
+                                                            <rect key="frame" x="0.0" y="24" width="300" height="17.5"/>
+                                                            <fontDescription key="fontDescription" name="ProximaNovaA-Regular" family="Proxima Nova Alt" pointSize="14"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNR-TV-znw">
+                                                            <rect key="frame" x="0.0" y="43.5" width="300" height="170.5"/>
+                                                            <string key="text">The Campus life at NUCES is productive and energetic. The campus provides excellent environment for learning and experimentation, students can utilize all the facilities in the campus as they like. Students can always go to library for information hunt, or they can put their ideas into practice by working in the well-equipped laboratories.</string>
+                                                            <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="14"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="5J8-xu-wI3" secondAttribute="bottom" id="2MG-k4-hi1"/>
+                                                <constraint firstItem="5J8-xu-wI3" firstAttribute="top" secondItem="gL6-8Y-sEv" secondAttribute="top" constant="10" id="ItA-DA-U7a"/>
+                                                <constraint firstItem="5J8-xu-wI3" firstAttribute="leading" secondItem="gL6-8Y-sEv" secondAttribute="leading" constant="10" id="eig-vN-2kV"/>
+                                                <constraint firstAttribute="trailing" secondItem="5J8-xu-wI3" secondAttribute="trailing" constant="10" id="sph-OX-Aos"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qQe-eV-ihX" id="DBk-m1-3DU"/>
+                                    <outlet property="delegate" destination="qQe-eV-ihX" id="H0d-h6-cO9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BqY-kn-MIF" firstAttribute="leading" secondItem="MMU-Qr-0Gd" secondAttribute="leading" id="932-VS-9fI"/>
+                            <constraint firstAttribute="trailing" secondItem="BqY-kn-MIF" secondAttribute="trailing" id="Aie-uB-zQp"/>
+                            <constraint firstItem="fqG-Xc-5jr" firstAttribute="top" secondItem="BqY-kn-MIF" secondAttribute="bottom" id="RMj-ta-kLR"/>
+                            <constraint firstItem="BqY-kn-MIF" firstAttribute="top" secondItem="MMU-Qr-0Gd" secondAttribute="top" id="vZz-PP-edB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="40o-Sr-exd" id="yvz-zC-a6l"/>
+                        <outlet property="tableView" destination="BqY-kn-MIF" id="Cn0-Uo-ANu"/>
+                        <segue destination="sjF-Qa-O6l" kind="show" identifier="GoMap" id="dD6-OQ-AyY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yYZ-4X-WjH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2883.75" y="1455.6338028169014"/>
+        </scene>
+        <!--Map DetailVC-->
+        <scene sceneID="ssy-Ti-8XX">
+            <objects>
+                <viewController id="sjF-Qa-O6l" customClass="MapDetailVC" customModule="FAST_NUCES" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="771-sY-6km"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fan-Zu-ZhV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lba-Y2-0ss">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5fL-8j-b3Y">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5fL-8j-b3Y" firstAttribute="top" secondItem="771-sY-6km" secondAttribute="bottom" id="91i-Xi-3t3"/>
+                            <constraint firstAttribute="trailing" secondItem="5fL-8j-b3Y" secondAttribute="trailing" id="Gt7-iz-BpL"/>
+                            <constraint firstItem="Fan-Zu-ZhV" firstAttribute="top" secondItem="5fL-8j-b3Y" secondAttribute="bottom" id="SE1-iy-Ugv"/>
+                            <constraint firstItem="5fL-8j-b3Y" firstAttribute="leading" secondItem="Lba-Y2-0ss" secondAttribute="leading" id="VFR-5b-K4u"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="5fL-8j-b3Y" id="mJ9-Ew-cxt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05M-ze-l4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3607.5" y="1455.6338028169014"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7oD-0e-BUB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FRi-D3-pn3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ihq-XV-1Zx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CAz-Sr-8yF" kind="relationship" relationship="rootViewController" id="qYu-VH-qZW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIR-gI-sVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1185" y="1480.9859154929577"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="FAST-NU_Karachi" width="718" height="466"/>
+        <image name="menu" width="22" height="22"/>
+    </resources>
+</document>

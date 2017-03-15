@@ -1,18 +1,19 @@
+
 //
-//  Favourites.swift
+//  Society.swift
 //  FAST NUCES
 //
-//  Created by Faizan on 11/02/2017.
+//  Created by Faizan on 14/03/2017.
 //  Copyright © 2017 Faizan. All rights reserved.
 //
 
 import Foundation
 
-class Favourites
+class Society
 {
     private var _title: String!
     private var _imageUrl: String!
-    private var _postkey: String!
+    private var _postDesc: String!
     
     var title : String
     {
@@ -24,16 +25,21 @@ class Favourites
         return _imageUrl
     }
     
-    var postkey : String
+    var postDesc : String
     {
-        return _postkey
+        return _postDesc
     }
     
-    init(postkey: String,title: String,imageUrl: String) {
+    init(postDesc: String,title: String,imageUrl: String) {
         
         self._title = title
         self._imageUrl = imageUrl
-        self._postkey = postkey
+        self._postDesc = postDesc
     }
-    
+
+
+
+
+
+
 }

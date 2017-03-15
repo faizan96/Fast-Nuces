@@ -21,13 +21,13 @@ class UsersCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        userImg.layer.cornerRadius = 20
+        userImg.layer.cornerRadius = 25
         userImg.layer.masksToBounds = true
     }
 
     func configureCell(users : Users)
     {
-        self.userLbl.text = users.username
+        self.userLbl.text = users.username.capitalized
         self.emailLbl.text = users.email
         let imageUrl = users.thumbnail
          userImg.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "profileImage"), options: [.continueInBackground,.progressiveDownload])

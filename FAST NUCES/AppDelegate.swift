@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         UINavigationBar.appearance().tintColor	=	UIColor.black
        
         
-        if	let	barFont	=	UIFont(name:	"Proxima Nova Alt Regular",	size:	26.0)	{
+        if	let	barFont	=	UIFont(name:"Proxima Nova Alt Regular",	size:26.0)	{
             UINavigationBar.appearance().titleTextAttributes	=
                 [NSForegroundColorAttributeName:UIColor.white,	NSFontAttributeName:barFont]
         }
